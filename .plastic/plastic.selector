@@ -1,0 +1,4 @@
+repository "GameEvolution@SASe@cloud"
+  path "/"
+    br "/main"
+    co "/main"
