@@ -5,32 +5,33 @@ using UnityEngine.EventSystems;
 
 public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private RectTransform _rectTransform;
-    private Canvas _mainCanvas;
-    private CanvasGroup _canvasGroup;
+    private Camera _mainCamera;
+    private Vector3 _offset;
+    public Transform _defaultParent;
 
-    private void Start()
+    private void Awake()
     {
-        _rectTransform = GetComponent<RectTransform>();
-        _mainCanvas = GetComponentInParent<Canvas>();
-        _canvasGroup = GetComponent<CanvasGroup>();
+        _mainCamera = Camera.allCameras[0];
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        _rectTransform.anchoredPosition += eventData.delta / _mainCanvas.scaleFactor;
+        Vector3 newPosition = _mainCamera.ScreenToWorldPoint(eventData.position);
+        newPosition.z = 0;
+        transform.position = newPosition + _offset;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        var slot = _rectTransform.parent;
-        slot.SetAsLastSibling();
-        _canvasGroup.blocksRaycasts = false;
+        _offset = transform.position - _mainCamera.ScreenToWorldPoint(eventData.position);
+        _defaultParent = transform.parent;
+        transform.SetParent(_defaultParent.parent);
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.localPosition = Vector3.zero;
-        _canvasGroup.blocksRaycasts = true;
+        transform.SetParent(_defaultParent);
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 }

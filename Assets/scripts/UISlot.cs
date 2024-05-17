@@ -7,8 +7,8 @@ public class UISlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        var item = eventData.pointerDrag.transform;
-        item.SetParent(transform);
-        item.localPosition = Vector3.zero;
+        UIItem item = eventData.pointerDrag.GetComponent<UIItem>();
+        if (item)
+            item._defaultParent = transform;
     }
 }
