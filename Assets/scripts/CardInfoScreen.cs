@@ -28,9 +28,4 @@ public class CardInfoScreen : MonoBehaviour
         Logo.sprite   =  null;
     }
 
-    public void Start()
-    {
-        ShowCardInfo(ManagerCard.cards[transform.GetSiblingIndex()]);
-    }
-
 }

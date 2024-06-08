@@ -11,16 +11,20 @@ public class MoveScreenCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public Transform Parent;
     public bool isDragging;
 
+    GameManagerScreen gameManagerScreen;
+
     void Awake()
     {
         MainCamera = Camera.allCameras[0];
+        gameManagerScreen  = FindObjectOfType<GameManagerScreen>();
     } 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         Target = transform.position - MainCamera.ScreenToWorldPoint(eventData.position);
         Parent = transform.parent;
-        isDragging = Parent.GetComponent<DropPlaceScreen>().type == FieldType.SELF_HAND;
+        isDragging = Parent.GetComponent<DropPlaceScreen>().type == FieldType.SELF_HAND
+            && gameManagerScreen.IsPlayerTurn;
         
         if (!isDragging)
             return;

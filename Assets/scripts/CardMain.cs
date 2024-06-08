@@ -20,20 +20,10 @@ class InfoCards
 {
     public static List<CardInfo> listCard = new List<CardInfo>()
     {
-        new CardInfo("Большой",  "Description  1",  "Sprites/card_test"),
-        new CardInfo("Маленький", "Description  2", "UI/card"),
-        new CardInfo("Средний",  "Description  3",  "UI/card"),
+        new CardInfo("Водоплавающие",  "Может быть атаковано только хищником со свойством водоплавающие",  "Sprites/card_test"),
+        new CardInfo("Быстрое", "Когда атаковано хищником, бросьте кубик. Если 4, 5, 6 - не съедено.", "UI/card"),
+        new CardInfo("Мимикрия",  "Когда первый раз за ход атакованно хищником, должно перенаправлено атаку на другое свое животное.",  "UI/card"),
         new CardInfo("Средний",   "Description  3",   "UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
-        new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
         new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
         new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
         new CardInfo("Средний",   "Description  3",   "Assets/UI/card"),
