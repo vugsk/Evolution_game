@@ -22,7 +22,7 @@ public class Game
     List<Card> GiveDeckCard()
     {
         List<Card> deck = new List<Card>();
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 15; i++)
             deck.Add(ManagerCard.cards[Random.Range(0, ManagerCard.cards.Count)]);
         return deck;
     }

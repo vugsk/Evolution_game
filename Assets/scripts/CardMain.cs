@@ -77,8 +77,7 @@ public class CardMain : MonoBehaviour
 {
     public void Awake()
     {
-        for (int i = 0; i < 2; i++)
-            foreach (var card in InfoCards.listCard)
-                ManagerCard.cards.Add(new Card(card));
+        foreach (var card in InfoCards.listCard)
+            ManagerCard.cards.Add(new Card(card));
     }
 }
